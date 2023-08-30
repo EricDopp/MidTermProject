@@ -11,7 +11,7 @@ public abstract class FileWriter
 
         Directory.CreateDirectory(fileOutputPath);
 
-        string filePath = Path.Combine(fileOutputPath, "myFile.json");
+        string filePath = Path.Combine(fileOutputPath, "libraryCatalog.json");
 
         return filePath;
     }
