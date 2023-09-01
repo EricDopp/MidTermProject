@@ -28,8 +28,4 @@
     <ProjectReference Include="..\MidTermProject\MidTermProject.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>
