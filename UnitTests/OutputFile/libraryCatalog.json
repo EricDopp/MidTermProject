@@ -6,8 +6,7 @@
     "IsAvailable": true,
     "Title": "To Kill a Mockingbird",
     "Author": "Harper Lee",
-    "Genre": "Fiction",
-    "Quantity": 1
+    "Genre": "Fiction"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -16,8 +15,7 @@
     "IsAvailable": true,
     "Title": "Literally 1984",
     "Author": "George Orwell",
-    "Genre": "Dystopian",
-    "Quantity": 1
+    "Genre": "Dystopian"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -26,8 +24,7 @@
     "IsAvailable": true,
     "Title": "The Great Gatsby",
     "Author": "F. Scott Fitzgerald",
-    "Genre": "Classic",
-    "Quantity": 1
+    "Genre": "Classic"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -36,8 +33,7 @@
     "IsAvailable": true,
     "Title": "Pride and Prejudice",
     "Author": "Jane Austen",
-    "Genre": "Romance",
-    "Quantity": 1
+    "Genre": "Romance"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -46,8 +42,7 @@
     "IsAvailable": true,
     "Title": "Harry Potter and the Sorcerer's Stone",
     "Author": "J.K. Rowling",
-    "Genre": "Fantasy",
-    "Quantity": 1
+    "Genre": "Fantasy"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -56,8 +51,7 @@
     "IsAvailable": true,
     "Title": "The Hobbit",
     "Author": "J.R.R. Tolkien",
-    "Genre": "Fantasy",
-    "Quantity": 1
+    "Genre": "Fantasy"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -66,8 +60,7 @@
     "IsAvailable": true,
     "Title": "The Catcher in the Rye",
     "Author": "J.D. Salinger",
-    "Genre": "Coming of Age",
-    "Quantity": 1
+    "Genre": "Coming of Age"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -76,8 +69,7 @@
     "IsAvailable": true,
     "Title": "The Da Vinci Code",
     "Author": "Dan Brown",
-    "Genre": "Mystery",
-    "Quantity": 1
+    "Genre": "Mystery"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -86,8 +78,7 @@
     "IsAvailable": true,
     "Title": "The Hunger Games",
     "Author": "Suzanne Collins",
-    "Genre": "Dystopian",
-    "Quantity": 1
+    "Genre": "Dystopian"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -96,8 +87,7 @@
     "IsAvailable": true,
     "Title": "The Fault in Our Stars",
     "Author": "John Green",
-    "Genre": "Young Adult",
-    "Quantity": 1
+    "Genre": "Young Adult"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -106,8 +96,7 @@
     "IsAvailable": true,
     "Title": "The Girl on the Train",
     "Author": "Paula Hawkins",
-    "Genre": "Thriller",
-    "Quantity": 1
+    "Genre": "Thriller"
   },
   {
     "CheckoutTime": "0001-01-01T00:00:00",
@@ -116,7 +105,6 @@
     "IsAvailable": true,
     "Title": "The Lord of the Rings: The Fellowship of the Ring",
     "Author": "J.R.R. Tolkien",
-    "Genre": "Fantasy",
-    "Quantity": 1
+    "Genre": "Fantasy"
   }
 ]
