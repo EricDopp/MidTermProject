@@ -8,11 +8,6 @@ namespace MidTermProject.Model;
 
 public class Book
 {
-    public Book(string title, string author)
-    {
-        Title = title;
-        Author = author;
-    }
     public DateTime CheckoutTime { get; set; } 
     public DateTime ReturnTime { get; set; } 
     public DateTime DueDate { get; set; } 
