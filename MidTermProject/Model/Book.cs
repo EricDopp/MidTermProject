@@ -8,9 +8,13 @@ namespace MidTermProject.Model;
 
 public class Book
 {
+    internal string? CheckedOutBy;
 
-    // book status plus 
-    //bool if checked in  or checked out
+    public Book(string title, string author)
+    {
+        Title = title;
+        Author = author;
+    }
     public DateTime CheckoutTime { get; set; } 
     public DateTime ReturnTime { get; set; } 
     public DateTime DueDate { get; set; } 
@@ -18,8 +22,4 @@ public class Book
     public string Title { get; set; }
     public string Author { get; set; }
     public string Genre { get; set; }
-    public int Quantity { get; set; }
-
-
-    
 }
