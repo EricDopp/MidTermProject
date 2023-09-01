@@ -8,8 +8,6 @@ namespace MidTermProject.Model;
 
 public class Book
 {
-    internal string? CheckedOutBy;
-
     public Book(string title, string author)
     {
         Title = title;
