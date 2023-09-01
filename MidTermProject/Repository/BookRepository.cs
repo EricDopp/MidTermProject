@@ -20,10 +20,10 @@ public class BookRepository : IBookRepository
 
     public void SaveBook(Book book)
     {
-        var students = GetAllBooks();
+        var books = GetAllBooks();
 
-        students.Add(book);
+        books.Add(book);
 
-        _writer.WriteFile(students);
+        _writer.WriteFile(books);
     }
 }
