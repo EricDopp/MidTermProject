@@ -1,17 +1,22 @@
 ﻿using MidTermProject.Model;
+using MidTermProject.Repository;
 using MidTermProject.Services.Interfaces;
 
 namespace MidTermProject.Services;
 
 public class BookService : IBookService
 {
-    public DateTime DueDate { get; set; }
-
-    private List<Book> _books = new List<Book>();
+    private BookRepository _bookRepository;
+    public BookService(BookRepository bookRepository)
+    {
+        _bookRepository = bookRepository;
+    }
 
     public void CheckoutBook(string title)
     {
-        foreach (var book in _books)
+        bool checkedOut = false;
+        var books = _bookRepository.GetAllBooks();
+        foreach (var book in books)
         {
             if (book.Title == title && book.IsAvailable)
             {
@@ -19,15 +24,22 @@ public class BookService : IBookService
                 book.DueDate = dueDate;
                 book.IsAvailable = false;
 
-                Console.WriteLine($"{book.Title} has been checked out. Please return by {dueDate.ToString("yyyy-MM-dd")}.");    
+                Console.WriteLine($"{book.Title} has been checked out. Please return by {dueDate.ToString("yyyy-MM-dd")}.");
+                checkedOut = true;
+                break;
             }
         }
-        Console.WriteLine($"Sorry, {title} is not available for checkout.");
+        if (!checkedOut)
+        {
+            Console.WriteLine($"Sorry, {title} is not available for checkout.");
+        }
+        _bookRepository.WriteFile(books);
     }
-
     public void ReturnBook(string title)
     {
-        foreach (var book in _books)
+        bool returned = false;
+        var books = _bookRepository.GetAllBooks();
+        foreach (var book in books)
         {
             if (book.Title == title && book.IsAvailable != true)
             {
@@ -40,9 +52,14 @@ public class BookService : IBookService
                 book.IsAvailable = true;
 
                 Console.WriteLine($"Book '{book.Title}' has been returned.");
+                returned = true;
                 break;
             }
         }
-        Console.WriteLine($"Book '{title}' was not found or is not checked out.");
+        if (!returned)
+        {
+            Console.WriteLine($"Book '{title}' was not found or is not checked out.");
+        }
+        _bookRepository.WriteFile(books);
     }
 }

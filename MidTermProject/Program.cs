@@ -1,8 +1,11 @@
 ﻿using MidTermProject.FileWriter;
-using MidTermProject.Model;
 using MidTermProject.Repository;
+using MidTermProject.Services;
 
-//foreach(Book book in bookRepository.GetAllBooks())
-//{
-//    Console.WriteLine($"{book.Genre}, {book.Title}, {book.Author}");
-//}
+
+var writer = new JsonFileWriter();
+var bookRepository = new BookRepository(writer);
+var libraryService = new LibraryService(bookRepository);
+AppDomain.CurrentDomain.ProcessExit += BookRepository.OnProcessExit;
+
+libraryService.MainMenu();

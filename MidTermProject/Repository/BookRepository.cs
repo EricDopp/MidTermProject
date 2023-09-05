@@ -1,26 +1,25 @@
 ﻿using MidTermProject.FileWriter;
 using MidTermProject.Model;
 using MidTermProject.Repository.Interfaces;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http.Json;
 
 namespace MidTermProject.Repository;
 
 public class BookRepository : IBookRepository
 {
     private IFileWriter _writer;
-
     public BookRepository(IFileWriter writer)
     {
         _writer = writer;
     }
 
+    public void WriteFile(List<Book> books)
+    {
+        _writer.WriteFile(books);
+    }
     public List<Book> GetAllBooks()
     {
         return _writer.ReadFile();
     }
-
     public void SaveBook(Book book)
     {
         var books = GetAllBooks();
