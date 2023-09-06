@@ -51,7 +51,6 @@ namespace UnitTests
                 newBook.Remove(item);
             }
 
-
             writer.WriteFile(newBook);
             Assert.False(newBook.Any(x => x.Title == "Title"));
         }
@@ -74,5 +73,3 @@ namespace UnitTests
         }
     }
 }
-
-//AppDomain.CurrentDomain.ProcessExit += BookRepository.OnProcessExit;

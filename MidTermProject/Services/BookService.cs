@@ -1,12 +1,11 @@
-﻿using MidTermProject.Model;
-using MidTermProject.Repository;
+﻿using MidTermProject.Repository;
 using MidTermProject.Services.Interfaces;
 
 namespace MidTermProject.Services;
 
 public class BookService : IBookService
 {
-    private BookRepository _bookRepository;
+    private readonly BookRepository _bookRepository;
     public BookService(BookRepository bookRepository)
     {
         _bookRepository = bookRepository;
@@ -20,11 +19,11 @@ public class BookService : IBookService
         {
             if (book.Title == title && book.IsAvailable)
             {
-                DateTime dueDate = DateTime.Now.AddDays(14);            
+                DateTime dueDate = DateTime.Now.AddDays(14);
                 book.DueDate = dueDate;
                 book.IsAvailable = false;
 
-                Console.WriteLine($"{book.Title} has been checked out. Please return by {dueDate.ToString("yyyy-MM-dd")}.");
+                Console.WriteLine($"{book.Title} has been checked out. Please return by {dueDate:MM-dd-yyyy}.");
                 checkedOut = true;
                 break;
             }
@@ -45,7 +44,7 @@ public class BookService : IBookService
             {
                 int daysLate = (DateTime.Now - book.DueDate).Days;
                 if (daysLate > 0)
-                {                   
+                {
                     Console.WriteLine($"Book '{book.Title}' is {daysLate} days late.");
                 }
                 book.DueDate = DateTime.MinValue;
