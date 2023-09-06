@@ -1,6 +1,5 @@
 ﻿using MidTermProject.Model;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace MidTermProject.FileWriter;
 
@@ -30,6 +29,7 @@ public class JsonFileWriter : FileWriter, IFileWriter
         }
         catch (Exception ex)
         {
+            Console.WriteLine(ex.ToString());
             return new List<Book>();
         }
     }

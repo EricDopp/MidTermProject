@@ -1,61 +1,61 @@
+using MidTermProject.FileWriter;
+using MidTermProject.Repository;
 using MidTermProject.Services;
 
-namespace UnitTests // Renamed namespace to UnitTests
+namespace UnitTests;
+public class BookServiceTests
 {
-    public class BookServiceTests
+    [Fact]
+    public void CannotCheckoutNonexistentBook()
     {
-        [Fact]
-        public void CannotCheckoutNonexistentBook()
-        {
-            var bookService = new BookService();
-            var title = "Nonexistent Book";
+        var writer = new JsonFileWriter();
+        var bookRepository = new BookRepository(writer);
+        var bookService = new BookService(bookRepository);
+        var title = "Nonexistent Book";
 
-            bookService.CheckoutBook(title);
-        }
-        [Fact]
-        public void CanCheckoutAvailableBook()
-        {
-            var bookService = new BookService();
-            var title = "The Great Gatsby"; 
+        bookService.CheckoutBook(title);
+    }
+    [Fact]
+    public void CanCheckoutAvailableBook()
+    {
+        var writer = new JsonFileWriter();
+        var bookRepository = new BookRepository(writer);
+        var bookService = new BookService(bookRepository);
+        var title = "The Great Gatsby";
 
-            // Act
-            bookService.CheckoutBook(title);
+        bookService.CheckoutBook(title);
+    }
+    [Fact]
+    public void CanCheckoutAndReturnBookWithCorrectDueDate()
+    {
+        var writer = new JsonFileWriter();
+        var bookRepository = new BookRepository(writer);
+        var bookService = new BookService(bookRepository);
+        var title = "The Great Gatsby";
 
-            
-        }
-        [Fact]
-        public void CanCheckoutAndReturnBookWithCorrectDueDate()
-        {
-            var bookService = new BookService();
-            var title = "The Great Gatsby"; 
+        bookService.CheckoutBook(title);
+        bookService.ReturnBook(title);
+    }
+    [Fact]
+    public void BookReturnedOnTime()
+    {
+        var writer = new JsonFileWriter();
+        var bookRepository = new BookRepository(writer);
+        var bookService = new BookService(bookRepository);
+        var title = "The Great Gatsby";
 
-            bookService.CheckoutBook(title);
-            bookService.ReturnBook(title);
-        }
+        bookService.CheckoutBook(title);
+        bookService.ReturnBook(title);
+    }
+    [Fact]
+    public void BookReturnedWithin14Days()
+    {
+        var writer = new JsonFileWriter();
+        var bookRepository = new BookRepository(writer);
+        var bookService = new BookService(bookRepository);
+        var title = "The Great Gatsby";
 
-        [Fact]
-        public void BookReturnedOnTime()
-        {
-            var bookService = new BookService();
-            var title = "The Great Gatsby"; 
-
-            bookService.CheckoutBook(title);
-
-            DateTime dueDate = DateTime.Now.AddDays(14);
-            bookService.ReturnBook(title);
-        }
-        [Fact]
-        public void BookReturnedWithin14Days()
-        {
-            var bookService = new BookService();
-            var title = "The Great Gatsby"; 
-
-            bookService.CheckoutBook(title);
-
-            DateTime returnDate = DateTime.Now.AddDays(10);
-
-            bookService.ReturnBook(title);
-        }
+        bookService.CheckoutBook(title);
+        bookService.ReturnBook(title);
     }
 }
-

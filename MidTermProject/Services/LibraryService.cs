@@ -38,7 +38,6 @@ public class LibraryService
                     break;
                 case "Search for a book":
                     _SearchBooks();
-                    _PromptForCheckout();
                     break;
                 case "Return a book":
                     _DisplayCheckedOutBooks();
@@ -57,7 +56,7 @@ public class LibraryService
             }
         }
     }
-    private void _DisplayBookTable(List<Book> booksToDisplay = null)
+    private void _DisplayBookTable(List<Book> booksToDisplay = null) // booksToDisplay parameter is optional
     {
         var table = new Table();
         table.Border(TableBorder.HeavyHead);
@@ -83,7 +82,6 @@ public class LibraryService
             }
             else
             {
-
                 table.AddRow(
                     new Markup($"[italic deepskyblue3]{book.Title}[/]"),
                     new Markup($"[grey62]{book.Author}[/]"),
@@ -153,8 +151,8 @@ public class LibraryService
         );
         if (choice == "Back")
         {
+            Console.Clear();
             MainMenu();
-            return;
         }
         var keyword = AnsiConsole.Prompt(new TextPrompt<string>($"Enter the {choice} keyword:")
             .Validate(keyword =>
@@ -175,14 +173,30 @@ public class LibraryService
             var books = _bookRepository.GetAllBooks();
             var foundBooks = books.FindAll(book =>
                 book.Author.Contains(keyword, StringComparison.OrdinalIgnoreCase));
-            _DisplayBookTable(foundBooks);
+            if (foundBooks.Count > 0)
+            {
+                _DisplayBookTable(foundBooks);
+                _PromptForCheckout();
+            }
+            else
+            {
+                AnsiConsole.MarkupLine("[italic]No matching books found.[/]");
+            }
         }
         else if (choice == "Title")
         {
             var books = _bookRepository.GetAllBooks();
             var foundBooks = books.FindAll(book =>
                 book.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase));
-            _DisplayBookTable(foundBooks);
+            if (foundBooks.Count > 0)
+            {
+                _DisplayBookTable(foundBooks);
+                _PromptForCheckout();
+            }
+            else
+            {
+                AnsiConsole.MarkupLine("[italic]No matching books found.[/]");
+            }
         }
     }
     private static bool _ContinueChecker()

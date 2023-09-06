@@ -2,7 +2,6 @@
 using MidTermProject.Repository;
 using MidTermProject.Services;
 
-
 var writer = new JsonFileWriter();
 var bookRepository = new BookRepository(writer);
 var libraryService = new LibraryService(bookRepository);
